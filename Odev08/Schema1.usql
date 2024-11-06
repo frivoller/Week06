@@ -1,0 +1,16 @@
+--1.film tablosunda bulunan filmleri rating de?erlerine göre gruplay?n?z.
+
+select rating, Count(*) from film group by rating;
+
+--2.film tablosunda bulunan filmleri replacement_cost sütununa göre gruplad???m?zda film say?s? 50 den fazla olan replacement_cost de?erini ve kar??l?k gelen film say?s?n? s?ralay?n?z.
+
+select replacement_cost, Count(*) from film group by replacement_cost having count(*) > 50;
+
+--3.customer tablosunda bulunan store_id de?erlerine kar??l?k gelen mü?teri say?lar?n? nelerdir?
+
+select store_id, Count(*) from customer group by store_id;
+select store_id, Count(store_id) from customer group by store_id;
+
+--4.city tablosunda bulunan ?ehir verilerini country_id sütununa göre grupland?rd?ktan sonra en fazla ?ehir say?s? bar?nd?ran country_id bilgisini ve ?ehir say?s?n? payla??n?z.
+
+select country_id, count(*) from city group by country_id order by count(*) desc limit 1;

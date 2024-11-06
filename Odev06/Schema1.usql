@@ -1,0 +1,15 @@
+--1.film tablosunda bulunan rental_rate sütunundaki de?erlerin ortalamas? nedir?
+
+select round(avg(rental_rate),2) from film ;
+
+--2.film tablosunda bulunan filmlerden kaç tanesi 'C' karakteri ile ba?lar?
+
+select Count(title)from film where title ~~* 'C%';
+
+--3.film tablosunda bulunan filmlerden rental_rate de?eri 0.99 a e?it olan en uzun (length) film kaç dakikad?r?
+
+select Max(length) from film where rental_rate = 0.99;
+
+--4.film tablosunda bulunan filmlerin uzunlu?u 150 dakikadan büyük olanlar?na ait kaç farkl? replacement_cost de?eri vard?r?
+
+select Count(distinct(replacement_cost)) from film where length > 150;

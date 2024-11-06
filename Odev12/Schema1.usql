@@ -1,0 +1,17 @@
+--1.film tablosunda film uzunlu?u length sütununda gösterilmektedir. Uzunlu?u ortalama film uzunlu?undan fazla kaç tane film vard?r?
+
+--Select Count(*) from film where length > (select avg(length) from film );
+
+--2.film tablosunda en yüksek rental_rate de?erine sahip kaç tane film vard?r?
+
+--select Count(*) from film where rental_rate = (select max(rental_rate) from film)
+
+--3.film tablosunda en dü?ük rental_rate ve en dü?ün replacement_cost de?erlerine sahip filmleri s?ralay?n?z.
+
+--select * from film where rental_rate = (select min(rental_rate)from film) and replacement_cost =(select min(replacement_cost)from film);
+
+--4.payment tablosunda en fazla say?da al??veri? yapan mü?terileri(customer) s?ralay?n?z.
+
+--select customer.customer_id, customer.first_name , customer.last_name , sum(amount) from customer join payment on payment.customer_id = customer.customer_id group by customer.customer_id, customer.first_name , customer.last_name order by sum(amount) desc;
+
+--select customer.customer_id, customer.first_name , customer.last_name ,Count(*) from payment inner join customer on payment.customer_id = customer.customer_id group by customer.customer_id, customer.first_name , customer.last_name order by Count(*) desc;CREATE SCHEMA IF NOT EXISTS [schema1];
